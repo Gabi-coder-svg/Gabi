@@ -1,4 +1,1 @@
-# Gabi
-# emanuelly
-# emanuelly
 # emanuelly

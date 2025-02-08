@@ -4,21 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 1, 
             nome: "Pack", 
             preco: "5.00", 
-            driveLink: "https://drive.google.com/drive/folders/1WZJyazo8IHjEitpVG_y-QVlm3Naal_tM?usp=sharing", 
             checkoutLink: "https://pay.cakto.com.br/9DHfhEU"
         },
         { 
             id: 2, 
             nome: "Template de Site Profissional", 
             preco: "79.90", 
-            driveLink: "https://drive.google.com/file/d/SEU_DRIVE_ID_2/view?usp=sharing", 
             checkoutLink: "https://sua-loja.cakto.com/checkout/ID_CHECKOUT_2"
         },
         { 
             id: 3, 
             nome: "Pack de Ícones Premium", 
             preco: "29.90", 
-            driveLink: "https://drive.google.com/file/d/SEU_DRIVE_ID_3/view?usp=sharing", 
             checkoutLink: "https://sua-loja.cakto.com/checkout/ID_CHECKOUT_3"
         },
     ];
@@ -32,11 +29,27 @@ document.addEventListener('DOMContentLoaded', function() {
         produtoDiv.innerHTML = `
             <h2>${produto.nome}</h2>
             <p>Preço: R$ ${produto.preco}</p>
-            <a href="${produto.checkoutLink}?redirect=https://seusite.com/success.html?produto=${produto.id}" target="_blank">
-                <button>Comprar</button>
-            </a>
+            <button onclick="comprarArquivo(${produto.id})">Comprar</button>
         `;
 
         produtosSection.appendChild(produtoDiv);
     });
+
+    window.comprarArquivo = function(produtoId) {
+        const produto = produtos.find(p => p.id === produtoId);
+        if (produto) {
+            // Abre o checkout em uma nova aba
+            const checkoutWindow = window.open(produto.checkoutLink, '_blank');
+
+            // Monitora se o checkout foi fechado e redireciona para success.html
+            const checkWindow = setInterval(() => {
+                if (checkoutWindow.closed) {
+                    clearInterval(checkWindow);
+                    window.location.href = "success.html";
+                }
+            }, 1000);
+        } else {
+            alert("Produto não encontrado!");
+        }
+    };
 });

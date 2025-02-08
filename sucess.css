@@ -29,8 +29,14 @@ h1 {
 /* Mensagem */
 #mensagem {
     font-size: 1.2rem;
-    color: #5a3d5c;
+    color: #5a3d5c; /* Cor do texto */
     margin-bottom: 20px;
+    line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+    max-width: 600px; /* Largura máxima para evitar textos muito longos */
+    padding: 15px; /* Espaçamento interno */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 /* Botão de Play */

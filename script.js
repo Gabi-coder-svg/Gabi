@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const produtos = [
         { 
             id: 1, 
-            nome: "pack", 
+            nome: "Pack", 
             preco: "5.00", 
             driveLink: "https://drive.google.com/drive/folders/1WZJyazo8IHjEitpVG_y-QVlm3Naal_tM?usp=sharing", 
             checkoutLink: "https://pay.cakto.com.br/9DHfhEU"
@@ -32,19 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
         produtoDiv.innerHTML = `
             <h2>${produto.nome}</h2>
             <p>Preço: R$ ${produto.preco}</p>
-            <button onclick="comprarArquivo(${produto.id})">Comprar</button>
+            <a href="${produto.checkoutLink}?redirect=https://seusite.com/success.html?produto=${produto.id}" target="_blank">
+                <button>Comprar</button>
+            </a>
         `;
 
         produtosSection.appendChild(produtoDiv);
     });
-
-    window.comprarArquivo = function(produtoId) {
-        const produto = produtos.find(p => p.id === produtoId);
-        if (produto) {
-            // Redireciona para o checkout da Cakto e, após o pagamento, volta para success.html com o ID do produto
-            window.location.href = `${produto.checkoutLink}?redirect=https://seusite.com/success.html?produto=${produto.id}`;
-        } else {
-            alert("Produto não encontrado!");
-        }
-    };
 });

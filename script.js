@@ -41,13 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // Abre o checkout em uma nova aba
             const checkoutWindow = window.open(produto.checkoutLink, '_blank');
 
-            // Monitora se o checkout foi fechado e redireciona para success.html
-            const checkWindow = setInterval(() => {
-                if (checkoutWindow.closed) {
-                    clearInterval(checkWindow);
-                    window.location.href = "success.html";
-                }
-            }, 1000);
+           // Monitora se o checkout foi aberto e redireciona para success.html
+const checkWindow = setInterval(() => {
+    // Verifica se a janela de checkout está aberta
+    if (checkoutWindow && !checkoutWindow.closed) {
+        clearInterval(checkWindow);
+        window.location.href = "success.html";
+    }
+}, 1000);  // A cada 1 segundo verifica o estado da janela
+
         } else {
             alert("Produto não encontrado!");
         }

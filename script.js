@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const produtos = [
         { 
             id: 1, 
-            nome: "Curso de Marketing Digital", 
-            preco: "49.90", 
-            driveLink: "https://drive.google.com/file/d/SEU_DRIVE_ID_1/view?usp=sharing", 
-            checkoutLink: "https://sua-loja.cakto.com/checkout/ID_CHECKOUT_1"
+            nome: "pack 1", 
+            preco: "5.00", 
+            driveLink: "https://drive.google.com/drive/folders/1WZJyazo8IHjEitpVG_y-QVlm3Naal_tM?usp=sharing", 
+            checkoutLink: "https://pay.cakto.com.br/9DHfhEU"
         },
         { 
             id: 2, 

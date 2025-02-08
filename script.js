@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const produtos = [
         { 
             id: 1, 
-            nome: "pack 1", 
+            nome: "pack", 
             preco: "5.00", 
             driveLink: "https://drive.google.com/drive/folders/1WZJyazo8IHjEitpVG_y-QVlm3Naal_tM?usp=sharing", 
             checkoutLink: "https://pay.cakto.com.br/9DHfhEU"
